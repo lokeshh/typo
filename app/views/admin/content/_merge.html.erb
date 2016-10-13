@@ -1,7 +1,5 @@
 <% form_tag "/admin/content/edit/#{@article.id}/merge" do %>
   <%= label :article, :merge_id, 'Merge ID: ' %>
-  <% if current_user.admin? %>
-    <%= text_field :post, :merge_id, name: 'merge_with' %>
-  <% end %>
+  <%= text_field :post, :merge_id, name: 'merge_with' %>
   <%= submit_tag "Merge" %>
 <% end %>
