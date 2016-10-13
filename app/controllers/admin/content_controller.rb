@@ -36,6 +36,12 @@ class Admin::ContentController < Admin::BaseController
     end
     new_or_edit
   end
+  
+  def merge_with
+    # debugger
+    Article.merge_two_articles(params[:id], params[:post][:merge_with])
+    redirect_to "/admin/content/edit/#{params[:id]}"
+  end
 
   def destroy
     @record = Article.find(params[:id])
@@ -182,7 +188,7 @@ class Admin::ContentController < Admin::BaseController
     @macros = TextFilter.macro_filters
     render 'new'
   end
-
+  
   def set_the_flash
     case params[:action]
     when 'new'

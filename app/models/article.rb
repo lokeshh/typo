@@ -102,6 +102,10 @@ class Article < Content
       end
       article
     end
+    
+    def merge_two_articles(id, merge_with)
+      p merge_with
+    end
 
     def search_with_pagination(search_hash, paginate_hash)
       
