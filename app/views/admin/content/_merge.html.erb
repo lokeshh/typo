@@ -1,4 +1,4 @@
-<% form_tag "/admin/content/edit/#{@article.id}/merge" do %>
+<% form_tag "/admin/content/edit/#{@article.id}/merge", id: 'merge_with' do %>
   <%= label :article, :merge_id, 'Merge ID: ' %>
   <%= text_field :post, :merge_id, id: 'merge_with' %>
   <%= submit_tag "Merge" %>
