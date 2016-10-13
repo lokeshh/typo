@@ -103,8 +103,15 @@ class Article < Content
       article
     end
     
-    def merge_two_articles(id, merge_with)
-      p merge_with
+    def merge_two_articles(id, merge_id)
+      return if id == merge_id
+      article = Article.find(id)
+      article_to_merge = Article.find(merge_id)
+      article.body += ' ' + article_to_merge.body
+      article.comments += article_to_merge.comments
+      article.save
+      article_to_merge.destroy
+      # debugger
     end
 
     def search_with_pagination(search_hash, paginate_hash)
