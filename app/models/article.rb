@@ -108,10 +108,9 @@ class Article < Content
       article = Article.find(id)
       article_to_merge = Article.find(merge_id)
       article.body += ' ' + article_to_merge.body
-      article.comments += article_to_merge.comments
+      article_to_merge.comments.each { |c| article.comments << c }
       article.save
-      article_to_merge.destroy
-      # debugger
+      article_to_merge.delete
     end
 
     def search_with_pagination(search_hash, paginate_hash)

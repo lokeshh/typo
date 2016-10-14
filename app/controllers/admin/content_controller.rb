@@ -38,7 +38,6 @@ class Admin::ContentController < Admin::BaseController
   end
   
   def merge_with
-    debugger
     Article.merge_two_articles(params[:id], params[:merge_with]) if
       current_user.admin?
     redirect_to "/admin/content/edit/#{params[:id]}"
